@@ -1,2 +1,19 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿var classes = new[]
+          {
+               new Classroom { Students = {"Evgeniy", "Sergey", "Andrew"}, },
+               new Classroom { Students = {"Anna", "Viktor", "Vladimir"}, },
+               new Classroom { Students = {"Bulat", "Alex", "Galina"}, }
+           };
+var allStudents = GetAllStudents(classes);
+
+Console.WriteLine(string.Join(" ", allStudents));
+
+
+static string[] GetAllStudents(Classroom[] classes)
+{
+
+    var allStudents = classes.SelectMany(x => x.Students).ToArray();
+    return allStudents;
+
+
+}
